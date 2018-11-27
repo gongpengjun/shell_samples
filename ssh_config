@@ -1,0 +1,17 @@
+# ~/.ssh/config on macOS
+# https://www.cnblogs.com/zhonghuasong/p/7236989.html
+# https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/
+# https://linux.die.net/man/5/ssh_config
+
+Host github.com
+ User git 
+ HostName github.com
+ IdentityFile ~/.ssh/github-id_rsa
+ AddKeysToAgent yes
+ UseKeychain yes
+
+Host git.company.com 
+ User git
+ HostName git.company.com
+ IdentityFile ~/.ssh/id_rsa
+
