@@ -53,7 +53,13 @@ find pathname -options -exec `command` {} \;
 示例: 查找文件当中含有SGID或SUID或SBIT的属性的文件，并使用 ls -l 命令显示
 
 ```
-find /usr/bin -perm +7000 -exec ls -l {} \;
+$ find /usr/bin -perm +7000 -exec ls -l {} \;
+```
+
+示例: 查找Android项目中的SDK配置
+
+```
+$ find . -name "*.gradle" -type f -exec grep SdkVersion {} \;
 ```
 
 ### 进阶命令: find pathname -options -ok
