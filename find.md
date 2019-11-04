@@ -1,6 +1,15 @@
 # Unix命令: find
 
-### 命令格式
+## 场景举例
+
+### 更新当前目录下的多个Git仓库
+
+```
+find . -mindepth 1 -maxdepth 1 -type d -exec git -C {} pull \;
+```
+
+
+## 命令格式
 
 ```
 find pathname -options [-print -exec -ok]
