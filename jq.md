@@ -6,9 +6,9 @@
 
 [TOC]
 
-### 1. 提取指定字段
+## 1. 提取指定字段
 
-#### 1.1 单纯提取指定字段为字符串
+### 1.1 单纯提取指定字段
 
 ```shell
 $ jq '.key1, key2'
@@ -20,15 +20,15 @@ or
 $ jq '.key1.keya, key2'
 ```
 
-#### 1.2 提取取指定字段输出JSON字符串
+### 1.2 提取指定字段并输出JSON
 
 > 参考 `man jq` - `Object Construction`
 
-##### 1.2.0 输出选项 `-c `
+#### 1.2.0 输出选项 `-c `
 
 `--compact-output` / `-c` : Using this option will result in compact output by putting each JSON object on  a  single line. 一行一个JSON对象
 
-##### 1.2.1 提取顶级字段
+#### 1.2.1 提取顶级字段
 
 ```shell
 $ jq '{ .key1, key2 }'
@@ -41,7 +41,7 @@ $ echo '{"a": 42, "b": 17, "c": 20}' | jq -c '{a, b}'
 {"a":42,"b":17}
 ```
 
-##### 1.2.2 提取嵌套字段
+#### 1.2.2 提取嵌套字段
 
 ```shell
 $ jq '{ keya : .key1.keya, key2 }'
@@ -54,12 +54,14 @@ $ echo '{"fruit":{"name":"apple","color":"green","price":1.20}}' | jq -c '{ name
 {"name":"apple","color":"green"}
 ```
 
-### 2. 剔除字段
+## 2. 剔除字段
 
-#### 2.1 剔除指定的字段
+### 2.1 剔除指定的字段
+
+#### 2.1.1 删除指定的字段
 
 ```shell
-jq -c 'del(.departmentInfo)'
+jq 'del(.departmentInfo)'
 ```
 
 示例
@@ -69,9 +71,65 @@ $ echo '{"name":"\u7f57\u68ee\u5854\u5c14","empNum":"D19850","ldap":"tangjunwei"
 {"name":"罗森塔尔","empNum":"D19850","ldap":"tangjunwei","device_type":"ios"}
 ```
 
-#### 2.2 剔除不存在的字段
+#### 2.1.2 递归删除指定的字段
 
-##### 2.2.1 shell pipe
+递归删除任意级别的`department_info`字段
+
+```shell
+jq 'walk(if type == "object" then del(.department_info) else . end)'
+```
+
+or
+
+递归删除任意级别的`department_info`字段
+
+```shell
+jq 'del(.. | .department_info?)'
+```
+
+or
+
+递归删除任意级别的`department_info`、`work_status`字段
+
+```shell
+jq 'del(.. | .department_info?,.work_status?)'
+```
+
+or
+
+递归删除任意级别的`department_info`、`work_status`字段
+
+```shell
+jq 'del(.. | .["department_info", "work_status"]?)'
+```
+
+示例
+
+```shell
+cat person.json | jq 'walk(if type == "object" then del(.department_info) else . end)'
+```
+
+or
+
+```shell
+cat person.json | jq 'del(.. | .department_info?,.work_status?)'
+```
+
+or
+
+```shell
+cat person.json | jq 'walk(if type == "object" then del(.department_info) | del(.work_status) else . end)'
+```
+
+or
+
+```shell
+cat person.json | jq 'del(.. | .["department_info", "work_status"]?)'
+```
+
+### 2.2 剔除不存在的字段
+
+#### 2.2.1 shell pipe
 
 ```shell
 | jq 'with_entries(select(.value|.!=null))'
@@ -92,7 +150,7 @@ $ echo '{"a":false}' | jq -c '{ a, b }' | jq -c 'with_entries(select(.value!=nul
 {"a":false}
 ```
 
-##### 2.2.2 jq pipe
+#### 2.2.2 jq pipe
 
 ```shell
 '| with_entries(select(.value|.!=null))'
