@@ -1,0 +1,59 @@
+{
+  "code": 0,
+  "result": {
+    "last_modified": 1623699816000,
+    "manager_name": "sunning",
+    "ddopage": "http://ddo-test.intra.didichuxing.com/openApi/objectiveAccess/redirect?currentLdap=gongpengjun&targetLdap=gongpengjun&source=dchat&device=ios",
+    "email": "gongpengjun@didiglobal.com",
+    "english_name": "Franklin",
+    "homepage": "http://i-app.ectest.intra.xiaojukeji.com/forumstatic/personal/gongpengjun",
+    "name": "gongpengjun",
+    "work_status": {
+      "status": "HOME_OFFICE",
+      "mode": "ACTIVE",
+      "emoji": ":wfh:",
+      "text": "在家办公"
+    },
+    "nickname": "巩鹏军",
+    "dept_id": "107787",
+    "fullname": "伦茨",
+    "department_info": [
+      {
+        "name": "巴里",
+        "id": "100581"
+      },
+      {
+        "name": "塔兰托",
+        "id": "107783"
+      },
+      {
+        "name": "塔恩豪森",
+        "id": "107786"
+      },
+      {
+        "name": "塔拉戈纳竞技",
+        "id": "107787"
+      }
+    ],
+    "emp_num": "D03813",
+    "is_follow": false,
+    "vchannel_id": "430977501280019393",
+    "display_config": 0,
+    "wearing_medal": null,
+    "user_flag": "emp:2;all-except-abroad;beijing;juzidui-all;juzidui-push;",
+    "id": "100344769",
+    "emp_status": 2,
+    "manager_mail": "sunning@didiglobal.com",
+    "manager_fullname": "罗伯托",
+    "team_id": "1",
+    "location": {
+      "country": "CHN",
+      "city": "北京市",
+      "building": "",
+      "station": ""
+    },
+    "calander": 1624008061265,
+    "avatar_url": "https://img-hxy021.didistatic.com/static/iportal/userphoto/Cxqfo/bb1532777370ce6cd944656388e8da06.jpg",
+    "job": "岗位900365"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "stream": {
+    "_id": 65675798730520654496,
+    "broadcast_platform": "live",
+    "community_id": "",
+    "community_ids": [],
+    "average_fps": 60.0247524752,
+    "delay": 0,
+    "created_at": "2018-09-26T07:25:38Z",
+    "is_playlist": false,
+    "stream_type": "live",
+    "preview": {
+      "small": "https://static-cdn.jtvnw.net/previews-ttv/live_user_versuta-80x4512wdfqf.jpg"
+    },
+    "channel": {
+      "mature": true,
+      "status": "status",
+      "broadcaster_language": "ru",
+      "broadcaster_software": "",
+      "_id": 218025408945123423423445,
+      "name": "djvbsdhvsdvasdv",
+      "created_at": "2011-04-17T17:31:36.091604Z",
+      "updated_at": "2018-09-26T09:49:04.434245Z",
+      "partner": true,
+      "video_banner": null,
+      "profile_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/25c2bec3-95b8-4347-aba0-128b3b913b0d-profile_banner-480.png",
+      "profile_banner_background_color": "",
+      "views": 103911737,
+      "followers": 446198,
+      "broadcaster_type": "",
+      "description": "",
+      "private_video": false,
+      "privacy_options_enabled": false
+    }
+  }
+}
