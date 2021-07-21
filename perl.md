@@ -91,3 +91,52 @@ $ echo $html | perl -ne 'print $1 . "\n" if m|(<a href=.*</a>)|'
 
 参考：https://www.cnblogs.com/leezhxing/p/4333773.html
 
+## 3. JSON字符串中的单引号
+
+### 3.1 字符串处理示例
+
+```shell
+$ cat single_quote.pl
+my $string = "How It's Made";
+$string =~ s/\'/`/g;
+print "$string\n";
+
+$ perl single_quote.pl
+How It`s Made
+```
+
+### 3.2 JSON处理示例
+
+#### 3.2.1 JSON数据文件
+
+```shell
+$ cat data.json
+{"sentence":"How It's Made"}
+```
+
+#### 3.2.2 Perl脚本代码
+
+```perl6
+$ cat single_quote_json.pl
+while (<>) {
+  chomp;
+  my $json_string = $_;
+  print "original json string:$json_string\n";
+  $json_string =~ s/\'/`/g;
+  $pretty_json_string = `jq -n '$json_string'`;
+  print "replaced json string:$json_string\n";
+  print "pretty   json string:$pretty_json_string\n";
+}
+```
+
+#### 3.2.3 执行输出结果
+
+```shell
+$ cat data.json|perl single_quote_json.pl
+original json string:{"sentence":"How It's Made"}
+replaced json string:{"sentence":"How It`s Made"}
+pretty   json string:{
+  "sentence": "How It`s Made"
+}
+```
+
