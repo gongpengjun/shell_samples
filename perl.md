@@ -93,6 +93,19 @@ $ echo $html | perl -ne 'print $1 . "\n" if m|(<a href=.*</a>)|'
 
 ## 3. JSON字符串中的单引号
 
+### 3.0 字符串处理示例
+
+```shell
+$ cat body.json | jq
+{
+  "sentence": "let's get to it"
+}
+$ cat body.json | perl -ne `jq $_`
+Missing right curly or square bracket at -e line 1, at end of line
+syntax error at -e line 1, at EOF
+Execution of -e aborted due to compilation errors.
+```
+
 ### 3.1 字符串处理示例
 
 ```shell
