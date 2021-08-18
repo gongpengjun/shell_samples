@@ -20,9 +20,10 @@ https://catonmat.net/ten-awk-tips-tricks-and-pitfalls
 
 #### 1.1.1 打印指定行区间
 
-line range:  `[2,4]` or `2<=NR,NR<=4` or `NR==2,NR==4`
+line range:  `[2,4]` or `2<=NR && NR<=4` or `NR==2,NR==4`
 
 ```shell
+$ awk '2<=NR && NR<=4' /etc/passwd
 $ awk 'NR==2,NR==4' /etc/passwd
 # User Database
 #
