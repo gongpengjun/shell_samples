@@ -1,0 +1,29 @@
+{
+	"responseHeader": {
+		"status": 0,
+		"QTime": 0,
+		"params": {
+			"q": "_validTo:9223372036854775807",
+			"rows": "2147483647",
+			"wt": "json"
+		}
+	},
+	"response": {
+		"numFound": 147,
+		"start": 0,
+		"docs": [
+			{
+				"_id": "a6d40c35-8425-4c8a-8ff4-c8336ba6a70c",
+				"_validFrom": 1487240174328,
+				"_validTo": 9223372036854775807,
+				"name": "COMPANY_NAME"
+			},
+			{
+				"_id": "d247cec6-21a4-42b2-9255-75443af51d5d",
+				"_validFrom": 1487240174020,
+				"_validTo": 9223372036854775807,
+				"name": "CUSTOMER_ID"
+			}
+		]
+	}
+}
