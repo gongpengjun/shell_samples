@@ -43,3 +43,47 @@ $ ./expand_var_in_single_quotes.sh
 {"bucketname":"testbucket","objectname":"testworkflow-2.0.1.jar","targetlocation":"/tmp/testworkflow-2.0.1.jar"}
 ```
 
+## 2、测试环境变量
+
+https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
+
+### 2.1、测试环境变量是否存在
+
+```shell
+if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
+```
+
+测试
+
+```shell
+$ if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
+var is unset
+$ export var=1
+$ if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
+var is set to '1'
+$ unset var
+$ if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
+var is unset
+```
+
+
+
+### 2.2、测试环境变量非空
+
+```shell
+if [ -z "$var" ]; then echo "var is blank"; else echo "var is set to '$var'"; fi
+```
+
+测试
+
+```shell
+$ if [ -z "$var" ]; then echo "var is blank"; else echo "var is set to '$var'"; fi
+var is blank
+$ export var=1
+$ if [ -z "$var" ]; then echo "var is blank"; else echo "var is set to '$var'"; fi
+var is set to '1'
+$ unset var
+$ if [ -z "$var" ]; then echo "var is blank"; else echo "var is set to '$var'"; fi
+var is blank
+```
+
