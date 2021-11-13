@@ -2,9 +2,35 @@
 
 [TOC]
 
-## 1、单引号内使用变量
+## 1、shell模板
 
-### 1.1、方法一
+参考：`shell/template.sh`
+
+```shell
+#!/bin/bash
+
+script_name=`basename "$0"`
+work_dir=`pwd`
+#echo "script_name: ${script_name}"
+#echo "work_dir: ${work_dir}"
+#echo "full path: ${work_dir}/${script_name}"
+if [ $# != 1 ] ; then
+    echo "USAGE: ./${script_name} {the_token}"
+    echo "e.g.: ./${script_name} 'thetoken'"
+    exit;
+fi
+the_token=$1
+if [ -z "${the_token}" ]; then
+  the_token="thetoken"
+fi
+cookie=${the_token}
+```
+
+
+
+## 2、单引号内使用变量
+
+### 2.1、方法一
 
 https://stackoverflow.com/a/13802438/328435
 
@@ -16,7 +42,7 @@ result='before'"$variable"'after'
 echo $result
 ```
 
-### 1.2、方法二
+### 2.2、方法二
 
 ```shell
 $ cat expand_var_in_single_quotes.sh
@@ -43,11 +69,11 @@ $ ./expand_var_in_single_quotes.sh
 {"bucketname":"testbucket","objectname":"testworkflow-2.0.1.jar","targetlocation":"/tmp/testworkflow-2.0.1.jar"}
 ```
 
-## 2、测试环境变量
+## 3、测试环境变量
 
 https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
 
-### 2.1、测试环境变量是否存在
+### 3.1、测试环境变量是否存在
 
 ```shell
 if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
@@ -66,9 +92,7 @@ $ if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"
 var is unset
 ```
 
-
-
-### 2.2、测试环境变量非空
+### 3.2、测试环境变量非空
 
 ```shell
 if [ -z "$var" ]; then echo "var is blank"; else echo "var is set to '$var'"; fi
