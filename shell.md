@@ -48,7 +48,7 @@ done
 # You can access them using echo "${arr[0]}", "${arr[1]}" also
 ```
 
-
+参考：https://stackoverflow.com/a/8880633/328435
 
 ## 2、单引号内使用变量
 
