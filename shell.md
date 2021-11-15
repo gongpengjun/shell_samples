@@ -4,6 +4,8 @@
 
 ## 1、shell模板
 
+### 1.1、shell 入口参数
+
 参考：`shell/template.sh`
 
 ```shell
@@ -24,6 +26,26 @@ if [ -z "${the_token}" ]; then
   the_token="thetoken"
 fi
 cookie=${the_token}
+```
+
+### 1.2、shell for循环遍历数组
+
+示例：`for_1.sh` 和 `for_2.sh`
+
+```shell
+#!/bin/bash
+
+## declare an array variable
+declare -a arr=("element1" "element2" "element3")
+
+## now loop through the above array
+for i in "${arr[@]}"
+do
+   echo "$i"
+   # or do whatever with individual element of the array
+done
+
+# You can access them using echo "${arr[0]}", "${arr[1]}" also
 ```
 
 
