@@ -85,6 +85,28 @@ find pathname -options -ok `command` {} \;
 find . -size 0 -ok rm {} \; // 删除大小为0的文件，执行删除前要确认
 ```
 
+### 进阶命令：find . -not -name "*.class"
+
+排除java class文件:
+
+```shell
+find . -not -name "*.class"
+```
+
+排除java class文件和文件夹
+
+```shell
+find . -not -name "*.class" -not -type d
+```
+
+or
+
+```shell
+find . -not -name "*.class" -type f
+```
+
+
+
 ## 参考资料
 
 - [find查找文件](https://www.cnblogs.com/xzxl/p/7555084.html)
